@@ -1,12 +1,11 @@
 import { colorStyle, useCustomFonts } from "../assets/componentStyleSheet";
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, ImageBackground, Image, StatusBar, SafeAreaView, ScrollView, Switch, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import { vw, vh, vmax, vmin } from "react-native-expo-viewport-units";
 import componentStyle from "../assets/componentStyleSheet";
 import styles from "../assets/stylesheet";
 import { gradientRectangle, jobNews1, marginBottomForScrollView, mostCompany, searchNav, suitableJob } from "../assets/component";
-import { editable, heartDouble } from "../assets/svgXml";
+import { editable, heartDouble, settingIcon } from "../assets/svgXml";
 import DATA from "../assets/DATA";
 import { SvgXml } from "react-native-svg";
 
@@ -20,63 +19,55 @@ function Setting({ navigation }) {
     const [isLetCompanyContact, setIsLetCompanyContact] = React.useState(false);
     const [allowEmailNotification, setAllowEmailNotification] = React.useState(false);
     return (
-        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.white }]}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" />
-
-            <ScrollView style={[styles.flex1, styles.flexCol, styles.w100,]} contentContainerStyle={[styles.alignItemsCenter, styles.gap4vw]}>
-                <LinearGradient
-                    colors={['#E2EAFF', '#FFE7AB']}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                    style={[styles.flexRow, styles.w90, styles.alignItemsCenter, styles.gap4vw, { paddingVertical: vw(2.75), paddingHorizontal: vw(4), borderRadius: vw(5), }]}>
-                    <Image source={require('../assets/images/placeholder.jpg')} style={[{ width: vw(17.5), height: vw(17.5), borderRadius: vw(100), borderWidth: vw(0.5), borderColor: colorStyle.blue2 }]} />
-                    <View style={[styles.flexCol, styles.gap2vw]}>
-                        <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue4, }]}>{currentUser.name}</Text>
-                        <Text style={[componentStyle.Mon12Bold, { color: colorStyle.darkGray, }]}>ID: {currentUser.id}</Text>
-                        <Text style={[componentStyle.Mon10Reg, { color: colorStyle.darkGray, }]}>Tham gia từ: {currentUser.joinDate}</Text>
+        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.blue1 }]}>
+            <StatusBar backgroundColor={colorStyle.blue1} barStyle="light-content" />
+            {searchNav('Cài đặt', settingIcon(vw(9), vw(9)), colorStyle.blue3, null, colorStyle.blue1)}
+            <ScrollView style={[styles.flex1, styles.flexCol, styles.w100, { backgroundColor: colorStyle.blue3 }]} contentContainerStyle={[styles.alignItemsCenter, styles.gap4vw]}>
+                <View style={[styles.positionRelative, styles.w90, { margin: '5%' }]}>
+                    <View
+                        style={[styles.flexRow, styles.w100, styles.alignItemsCenter, styles.gap4vw, { paddingVertical: vw(2.75), paddingHorizontal: vw(4), borderRadius: vw(5), backgroundColor: colorStyle.white }]}>
+                        <Image source={require('../assets/images/placeholder.jpg')} style={[{ width: vw(17.5), height: vw(17.5), borderRadius: vw(100), borderWidth: vw(0.5), borderColor: colorStyle.blue2 }]} />
+                        <View style={[styles.flexCol, styles.gap2vw]}>
+                            <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue4, }]}>{currentUser.name}</Text>
+                            <Text style={[componentStyle.Mon12Bold, { color: colorStyle.darkGray, }]}>ID: {currentUser.id}</Text>
+                            <Text style={[componentStyle.Mon10Reg, { color: colorStyle.darkGray, }]}>Tham gia từ: {currentUser.joinDate}</Text>
+                        </View>
                     </View>
-                </LinearGradient>
+                    <View style={[styles.flex1, styles.w100, styles.h100, styles.positionAbsolute, { borderRadius: vw(5), zIndex: -1, backgroundColor: colorStyle.blue1, top: vw(0.5) }]}></View>
+                </View>
 
 
                 <View style={[styles.w100]}>
-                    <View style={{ borderTopWidth: vw(0.5), borderRightWidth: vw(0.5), borderColor: colorStyle.blue1, borderTopRightRadius: vw(7.5), marginBottom: vw(5) }}>
-                        <LinearGradient
-                            colors={['#E2EAFF', 'rgba(255, 255, 255, 0.00)']}
-                            start={{ x: 0, y: 0 }}
-                            end={{ x: 0, y: 1 }}
-                            style={{ borderTopRightRadius: vw(7.5) }}>
+                    <View style={{ marginBottom: vw(5) }}>
+                        <View style={{ borderTopRightRadius: vw(7.5), backgroundColor: colorStyle.white }}>
                             <View style={[styles.flexCol, styles.gap4vw, { paddingVertical: vw(5), paddingHorizontal: vw(6.5), }]}>
                                 <Text style={[componentStyle.Os20Bold, { color: colorStyle.black }]}>Quản lý hồ sơ</Text>
-                                <View style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, styles.borderRadius16, styles.shadowW0H05Color, { backgroundColor: colorStyle.blue3, paddingVertical: vw(4), paddingHorizontal: vw(4), shadowColor: colorStyle.blue1 }]}>
-                                    <Text style={[componentStyle.Mon14Bold, { color: colorStyle.black }]}>Trạng thái tìm việc</Text>
+                                <View style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, styles.borderRadius16, styles.shadowW0H05Color, { backgroundColor: colorStyle.blue1, paddingHorizontal: vw(4), shadowColor: colorStyle.grey }]}>
+                                    <Text style={[componentStyle.Mon14Bold, { color: colorStyle.white }]}>Trạng thái tìm việc</Text>
                                     <Switch
-                                        trackColor={{ false: colorStyle.grey, true: '#81b0ff' }}
-                                        thumbColor={isAvailable ? colorStyle.blue1 : colorStyle.darkGray}
+                                        trackColor={{ false: '#81b0ff', true: '#81b0ff' }}
+                                        thumbColor={isAvailable ? colorStyle.white : colorStyle.grey}
                                         ios_backgroundColor={colorStyle.blue3}
                                         onValueChange={() => { setIsAvailable(!isAvailable) }}
                                         value={isAvailable}
                                     />
                                 </View>
-                                <View style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, styles.borderRadius16, styles.shadowW0H05Color, { backgroundColor: colorStyle.blue3, paddingVertical: vw(4), paddingHorizontal: vw(4), shadowColor: colorStyle.blue1 }]}>
-                                    <Text style={[componentStyle.Mon14Bold, { color: colorStyle.black }]}>Cho phép NTD liên hệ</Text>
+                                <View style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, styles.borderRadius16, styles.shadowW0H05Color, { backgroundColor: colorStyle.blue1, paddingHorizontal: vw(4), shadowColor: colorStyle.grey }]}>
+                                    <Text style={[componentStyle.Mon14Bold, { color: colorStyle.white }]}>Cho phép NTD liên hệ</Text>
                                     <Switch
-                                        trackColor={{ false: colorStyle.grey, true: '#81b0ff' }}
-                                        thumbColor={isAvailable ? colorStyle.blue1 : colorStyle.darkGray}
+                                        trackColor={{ false: '#81b0ff', true: '#81b0ff' }}
+                                        thumbColor={isLetCompanyContact ? colorStyle.white : colorStyle.grey}
                                         ios_backgroundColor={colorStyle.blue3}
                                         onValueChange={() => { setIsLetCompanyContact(!isLetCompanyContact) }}
                                         value={isLetCompanyContact}
                                     />
                                 </View>
                             </View>
-                        </LinearGradient>
+                        </View>
                     </View>
 
-                    <View style={{ borderTopWidth: vw(0.5), borderRightWidth: vw(0.5), borderColor: colorStyle.blue1, borderTopRightRadius: vw(7.5), marginBottom: vw(5) }}>
-                        <LinearGradient
-                            colors={['#E2EAFF', 'rgba(255, 255, 255, 0.00)']}
-                            start={{ x: 0, y: 0 }}
-                            end={{ x: 0, y: 1 }}
-                            style={{ borderTopRightRadius: vw(7.5) }}>
+                    <View style={{ marginBottom: vw(5) }}>
+                        <View style={{ borderTopRightRadius: vw(7.5), backgroundColor: colorStyle.white }}>
                             <View style={[styles.flexCol, styles.gap4vw, { paddingVertical: vw(5), paddingHorizontal: vw(6.5), }]}>
                                 <Text style={[componentStyle.Os20Bold, { color: colorStyle.black }]}>Quản lý tìm việc</Text>
                                 <View style={[styles.flexRow, styles.flexWrap, styles.justifyContentSpaceBetween]}>
@@ -115,15 +106,11 @@ function Setting({ navigation }) {
                                     </View>
                                 </View>
                             </View>
-                        </LinearGradient>
+                        </View>
                     </View>
 
-                    <View style={{ borderTopWidth: vw(0.5), borderRightWidth: vw(0.5), borderLeftWidth: vw(0.5), borderColor: colorStyle.blue1, borderTopRightRadius: vw(7.5), borderTopLeftRadius: vw(7.5), marginBottom: vw(5) }}>
-                        <LinearGradient
-                            colors={['#E2EAFF', 'rgba(255, 255, 255, 0.00)']}
-                            start={{ x: 0, y: 0 }}
-                            end={{ x: 0, y: 1 }}
-                            style={{ borderTopRightRadius: vw(7.5), borderTopLeftRadius: vw(7.5), }}>
+                    <View style={{ borderRadius: vw(7.5), marginBottom: vw(5), width: '90%', alignSelf: 'center' }}>
+                        <View style={{ borderTopRightRadius: vw(7.5), borderTopLeftRadius: vw(7.5), backgroundColor: colorStyle.white }}>
 
                             <View style={[styles.flexCol, styles.gap4vw, { paddingVertical: vw(5), paddingHorizontal: vw(6.5), }]}>
                                 <Text style={[componentStyle.Os20Bold, { color: colorStyle.black }]}>Cài đặt</Text>
@@ -167,10 +154,10 @@ function Setting({ navigation }) {
                                     <Text style={[componentStyle.Mon14Reg, { color: colorStyle.darkGray, paddingVertical: vw(2.5) }]}>Đăng xuất </Text>
                                 </TouchableOpacity>
                             </View>
-                        </LinearGradient>
+                            {marginBottomForScrollView()}
+                        </View>
                     </View>
                 </View>
-                {marginBottomForScrollView()}
             </ScrollView>
         </SafeAreaView>
     )

@@ -6,7 +6,7 @@ import { vw, vh, vmax, vmin } from "react-native-expo-viewport-units";
 import componentStyle from "../assets/componentStyleSheet";
 import styles from "../assets/stylesheet";
 import { gradientRectangle, jobNews1, marginBottomForScrollView, mostCompany, searchNav, suitableJob } from "../assets/component";
-import { editable, heartDouble } from "../assets/svgXml";
+import { editable, heartDouble, userIcon } from "../assets/svgXml";
 import DATA, { retrieveData, fetchUserData } from "../assets/DATA";
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -196,13 +196,13 @@ function User({ navigation }) {
                     />
                 </View>
                 <View style={[styles.w80vw, styles.flexCol, styles.gap2vw, { marginVertical: vw(2), }]}>
-                    <Text style={[componentStyle.Os20Bold, , styles.w100, { color: colorStyle.blue4, }]}>Dạng tật: </Text>
+                    <Text style={[componentStyle.Os20Bold, , styles.w100, { color: colorStyle.blue4, }]}>Khối lượng công việc có thể đáp ứng: </Text>
                     {disableEdit ?
                         disableEdit.map((item, index) => (
                             <View key={index} style={[styles.w90, styles.gap1vw, styles.alignSelfCenter, styles.marginVertical1vw]}>
                                 <TextInput
                                     style={[componentStyle.Mon14Reg, styles.w100, { color: colorStyle.black, backgroundColor: colorStyle.white, borderWidth: vw(0.25), borderRadius: vw(1), borderColor: colorStyle.blue4, paddingHorizontal: vw(2.5), paddingVertical: vw(2) }]}
-                                    placeholder="Dạng tật"
+                                    placeholder="Khối lượng công việc có thể đáp ứng"
                                     onChangeText={(text) => {
                                         const updatedDisableEdit = [...disableEdit]; // Create a copy of the array
                                         updatedDisableEdit[index] = text; // Modify the copy
@@ -219,13 +219,13 @@ function User({ navigation }) {
                                     }}
                                     style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { alignSelf: 'flex-end', backgroundColor: colorStyle.white, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(1) }]}
                                 >
-                                    <Text style={[componentStyle.Mon14Reg, { color: colorStyle.blue4, }]}>Xóa</Text>
+                                    <Text style={[componentStyle.Mon14Reg, { color: 'red', }]}>Xóa</Text>
                                 </TouchableOpacity>
                             </View>
                         ))
                         : null}
-                    <TouchableOpacity style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { backgroundColor: colorStyle.blue4, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(1) }]} onPress={() => setDisableEdit([...disableEdit, disableEdit])}>
-                        <Text style={[componentStyle.Mon14Reg, { color: colorStyle.white, }]}>Thêm</Text>
+                    <TouchableOpacity style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, styles.w80, styles.alignSelfCenter, { backgroundColor: colorStyle.blue2, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(4) }]} onPress={() => setDisableEdit([...disableEdit, disableEdit])}>
+                        <Text style={[componentStyle.Mon14Reg, styles.textCenter, styles.w100, { color: colorStyle.white, }]}>Thêm</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.w80vw, styles.flexCol, styles.gap2vw, { marginVertical: vw(2), overflow: 'hidden', borderWidth: vw(0.5), borderColor: 'rgba(0,0,0,0)' }]}>
@@ -286,16 +286,16 @@ function User({ navigation }) {
                                     }}
                                     style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { alignSelf: 'flex-end', backgroundColor: colorStyle.white, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(1) }]}
                                 >
-                                    <Text style={[componentStyle.Mon14Reg, { color: colorStyle.blue4, }]}>Xóa</Text>
+                                    <Text style={[componentStyle.Mon14Reg, { color: 'red', }]}>Xóa</Text>
                                 </TouchableOpacity>
                             </View>
                         ))
                         : null}
 
                     <TouchableOpacity
-                        style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { backgroundColor: colorStyle.blue4, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(1) }]}
+                        style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, styles.w80, styles.alignSelfCenter, { backgroundColor: colorStyle.blue2, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(4) }]}
                         onPress={() => setExpEdit([...expEdit, {}])}>
-                        <Text style={[componentStyle.Mon14Reg, { color: colorStyle.white, }]}>Thêm</Text>
+                        <Text style={[componentStyle.Mon14Reg, styles.textCenter, styles.w100, { color: colorStyle.white, }]}>Thêm</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.w80vw, styles.flexCol, styles.gap2vw, { marginVertical: vw(2), }]}>
@@ -322,13 +322,13 @@ function User({ navigation }) {
                                     }}
                                     style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { alignSelf: 'flex-end', backgroundColor: colorStyle.white, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(1) }]}
                                 >
-                                    <Text style={[componentStyle.Mon14Reg, { color: colorStyle.blue4, }]}>Xóa</Text>
+                                    <Text style={[componentStyle.Mon14Reg, { color: 'red', }]}>Xóa</Text>
                                 </TouchableOpacity>
                             </View>
                         ))
                         : null}
-                    <TouchableOpacity style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { backgroundColor: colorStyle.blue4, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(1) }]} onPress={() => setEducationEdit([...educationEdit, educationEdit])}>
-                        <Text style={[componentStyle.Mon14Reg, { color: colorStyle.white, }]}>Thêm</Text>
+                    <TouchableOpacity style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, styles.w80, styles.alignSelfCenter, { backgroundColor: colorStyle.blue2, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(4) }]} onPress={() => setEducationEdit([...educationEdit, educationEdit])}>
+                        <Text style={[componentStyle.Mon14Reg, styles.textCenter, styles.w100, { color: colorStyle.white, }]}>Thêm</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.w80vw, styles.flexCol, styles.gap2vw, { marginVertical: vw(2), }]}>
@@ -366,13 +366,13 @@ function User({ navigation }) {
                                     }}
                                     style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { alignSelf: 'flex-end', backgroundColor: colorStyle.white, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(1) }]}
                                 >
-                                    <Text style={[componentStyle.Mon14Reg, { color: colorStyle.blue4, }]}>Xóa</Text>
+                                    <Text style={[componentStyle.Mon14Reg, { color: 'red', }]}>Xóa</Text>
                                 </TouchableOpacity>
                             </View>
                         ))
                         : null}
-                    <TouchableOpacity style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { backgroundColor: colorStyle.blue4, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(1) }]} onPress={() => setSkillEdit([...skillEdit, skillEdit])}>
-                        <Text style={[componentStyle.Mon14Reg, { color: colorStyle.white, }]}>Thêm</Text>
+                    <TouchableOpacity style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, styles.w80, styles.alignSelfCenter, { backgroundColor: colorStyle.blue2, paddingHorizontal: vw(2.5), paddingVertical: vw(2), borderRadius: vw(4) }]} onPress={() => setSkillEdit([...skillEdit, skillEdit])}>
+                        <Text style={[componentStyle.Mon14Reg, styles.textCenter, styles.w100, { color: colorStyle.white, }]}>Thêm</Text>
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity
@@ -388,24 +388,21 @@ function User({ navigation }) {
 
 
     return (
-        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.white }]}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" />
-            <LinearGradient
-                colors={['#E2EAFF', '#FFE7AB']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={{ height: vh(100), position: 'absolute', left: 0, right: 0, top: 0, zIndex: -1 }}
-            >
-            </LinearGradient>
+        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.blue1 }]}>
+            <StatusBar backgroundColor={colorStyle.blue1} barStyle='light-content' />
+            {searchNav('Người dùng', userIcon(vw(9), vw(9)), colorStyle.blue3, null, colorStyle.blue1)}
 
-            <ScrollView style={[styles.flex1, styles.flexCol, styles.gap5vw, styles.w90, styles.alignSelfCenter]}>
-                <View style={[styles.flexRow, styles.alignItemsCenter, styles.gap4vw, { paddingVertical: vw(2.75), paddingHorizontal: vw(4), borderRadius: vw(5), backgroundColor: colorStyle.white }]}>
-                    <Image source={require('../assets/images/placeholder.jpg')} style={[{ width: vw(17.5), height: vw(17.5), borderRadius: vw(100), borderWidth: vw(0.5), borderColor: colorStyle.blue2 }]} />
-                    <View style={[styles.flexCol, styles.gap2vw]}>
-                        <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue4, }]}>{currentUser.name}</Text>
-                        <Text style={[componentStyle.Mon12Bold, { color: colorStyle.darkGray, }]}>{currentUser.id}</Text>
-                        <Text style={[componentStyle.Mon10Reg, { color: colorStyle.darkGray, }]}>Tham gia từ: {currentUser.joinDate}</Text>
+            <ScrollView style={[styles.flex1, styles.flexCol, styles.gap5vw, styles.w100, styles.alignSelfCenter, { backgroundColor: colorStyle.blue3, padding: '5%' }]}>
+                <View>
+                    <View style={[styles.flexRow, styles.alignItemsCenter, styles.gap4vw, { paddingVertical: vw(2.75), paddingHorizontal: vw(4), borderRadius: vw(5), backgroundColor: colorStyle.white }]}>
+                        <Image source={require('../assets/images/placeholder.jpg')} style={[{ width: vw(17.5), height: vw(17.5), borderRadius: vw(100), borderWidth: vw(0.5), borderColor: colorStyle.blue2 }]} />
+                        <View style={[styles.flexCol, styles.gap2vw]}>
+                            <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue4, }]}>{currentUser.name}</Text>
+                            <Text style={[componentStyle.Mon12Bold, { color: colorStyle.darkGray, }]}>{currentUser.id}</Text>
+                            <Text style={[componentStyle.Mon10Reg, { color: colorStyle.darkGray, }]}>Tham gia từ: {currentUser.joinDate}</Text>
+                        </View>
                     </View>
+                    <View style={[styles.flex1, styles.w100, styles.h100, styles.positionAbsolute, { borderRadius: vw(5), zIndex: -1, backgroundColor: colorStyle.grey, top: vw(0.75) }]}></View>
                 </View>
 
                 <View style={[styles.flexRow, styles.justifyContentSpaceBetween, styles.alignItemsCenter, { paddingVertical: vw(2.5) }]}>
@@ -446,7 +443,7 @@ function User({ navigation }) {
 
                             <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue4, }]}>Tình trạng bản thân</Text>
                             <View style={[styles.flexRow, styles.alignItemsCenter]}>
-                                <Text style={[componentStyle.Mon12Bold, { color: colorStyle.black, }]}>Dạng tật: </Text>
+                                <Text style={[componentStyle.Mon12Bold, { color: colorStyle.black, }]}>Khối lượng đáp ứng: </Text>
                                 {currentUser.disable ?
                                     currentUser.disable.map((item, index) => {
                                         return (

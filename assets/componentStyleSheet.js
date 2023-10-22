@@ -3,80 +3,72 @@ import { vw, vh } from 'react-native-expo-viewport-units';
 import { useFonts } from 'expo-font';
 
 import {
-    Oswald_200ExtraLight,
-    Oswald_300Light,
-    Oswald_400Regular,
-    Oswald_500Medium,
-    Oswald_600SemiBold,
-    Oswald_700Bold,
-} from '@expo-google-fonts/oswald';
+    NotoSans_100Thin,
+    NotoSans_100Thin_Italic,
+    NotoSans_200ExtraLight,
+    NotoSans_200ExtraLight_Italic,
+    NotoSans_300Light,
+    NotoSans_300Light_Italic,
+    NotoSans_400Regular,
+    NotoSans_400Regular_Italic,
+    NotoSans_500Medium,
+    NotoSans_500Medium_Italic,
+    NotoSans_600SemiBold,
+    NotoSans_600SemiBold_Italic,
+    NotoSans_700Bold,
+    NotoSans_700Bold_Italic,
+    NotoSans_800ExtraBold,
+    NotoSans_800ExtraBold_Italic,
+    NotoSans_900Black,
+    NotoSans_900Black_Italic,
+} from '@expo-google-fonts/noto-sans';
 
 import {
-    Montserrat_100Thin,
-    Montserrat_200ExtraLight,
-    Montserrat_300Light,
-    Montserrat_400Regular,
-    Montserrat_500Medium,
-    Montserrat_600SemiBold,
-    Montserrat_700Bold,
-    Montserrat_800ExtraBold,
-    Montserrat_900Black,
-    Montserrat_100Thin_Italic,
-    Montserrat_200ExtraLight_Italic,
-    Montserrat_300Light_Italic,
-    Montserrat_400Regular_Italic,
-    Montserrat_500Medium_Italic,
-    Montserrat_600SemiBold_Italic,
-    Montserrat_700Bold_Italic,
-    Montserrat_800ExtraBold_Italic,
-    Montserrat_900Black_Italic,
-} from '@expo-google-fonts/montserrat';
+    Signika_300Light,
+    Signika_400Regular,
+    Signika_500Medium,
+    Signika_600SemiBold,
+    Signika_700Bold,
+} from '@expo-google-fonts/signika';
 
 export const useCustomFonts = () => {
     return useFonts({
-        Oswald_200ExtraLight,
-        Oswald_300Light,
-        Oswald_400Regular,
-        Oswald_500Medium,
-        Oswald_600SemiBold,
-        Oswald_700Bold,
-        Montserrat_100Thin,
-        Montserrat_200ExtraLight,
-        Montserrat_300Light,
-        Montserrat_400Regular,
-        Montserrat_500Medium,
-        Montserrat_600SemiBold,
-        Montserrat_700Bold,
-        Montserrat_800ExtraBold,
-        Montserrat_900Black,
-        Montserrat_100Thin_Italic,
-        Montserrat_200ExtraLight_Italic,
-        Montserrat_300Light_Italic,
-        Montserrat_400Regular_Italic,
-        Montserrat_500Medium_Italic,
-        Montserrat_600SemiBold_Italic,
-        Montserrat_700Bold_Italic,
-        Montserrat_800ExtraBold_Italic,
-        Montserrat_900Black_Italic,
-        // 'anuphanBold': require('../assets/fonts/Anuphan-Bold.ttf'),
-        // 'anuphanLight': require('../assets/fonts/Anuphan-Light.ttf'),
-        // 'anuphanMedium': require('../assets/fonts/Anuphan-Medium.ttf'),
-        // 'anuphanSemiBold': require('../assets/fonts/Anuphan-SemiBold.ttf'),
-        // 'anuphanThin': require('../assets/fonts/Anuphan-Thin.ttf'),
-        // 'anuphanRegular': require('../assets/fonts/Anuphan-Regular.ttf'),
+        Signika_300Light,
+        Signika_400Regular,
+        Signika_500Medium,
+        Signika_600SemiBold,
+        Signika_700Bold,
+        NotoSans_100Thin,
+        NotoSans_100Thin_Italic,
+        NotoSans_200ExtraLight,
+        NotoSans_200ExtraLight_Italic,
+        NotoSans_300Light,
+        NotoSans_300Light_Italic,
+        NotoSans_400Regular,
+        NotoSans_400Regular_Italic,
+        NotoSans_500Medium,
+        NotoSans_500Medium_Italic,
+        NotoSans_600SemiBold,
+        NotoSans_600SemiBold_Italic,
+        NotoSans_700Bold,
+        NotoSans_700Bold_Italic,
+        NotoSans_800ExtraBold,
+        NotoSans_800ExtraBold_Italic,
+        NotoSans_900Black,
+        NotoSans_900Black_Italic,
     });
 };
 
 export const colorStyle = StyleSheet.create({
-    white: '#FAFAFA',
-    grey: '#BABABA',
+    white: '#FBFBFB',
+    grey: '#ADADAD',
     darkGray: '#383838',
-    black: '#3C3C3C',
-    blue1: '#1F57E8',
-    blue2: '#517AE4',
-    blue3: '#E2EAFF',
-    blue4: '#3454A4',
-    tan1: '#E2B647',
+    black: '#3F3F3F',
+    blue1: '#546BD7',
+    blue2: '#715FDC',
+    blue3: '#EDF0FF',
+    blue4: '#30418F',
+    tan1: '#EDF0FF',
     tan2: '#FFE7AB',
 });
 
@@ -84,141 +76,141 @@ const componentStyle = StyleSheet.create({
 
     // font
     Oswald_200ExtraLight: {
-        fontFamily: 'Oswald_200ExtraLight',
+        fontFamily: 'Signika_300Light',
     },
     Oswald_300Light: {
-        fontFamily: 'Oswald_300Light',
+        fontFamily: 'Signika_300Light',
     },
     Oswald_400Regular: {
-        fontFamily: 'Oswald_400Regular',
+        fontFamily: 'Signika_400Regular',
     },
     Oswald_500Medium: {
-        fontFamily: 'Oswald_500Medium',
+        fontFamily: 'Signika_500Medium',
     },
     Oswald_600SemiBold: {
-        fontFamily: 'Oswald_600SemiBold',
+        fontFamily: 'Signika_600SemiBold',
     },
     Oswald_700Bold: {
-        fontFamily: 'Oswald_700Bold',
+        fontFamily: 'Signika_700Bold',
     },
     Montserrat_100Thin: {
-        fontFamily: 'Montserrat_100Thin'
+        fontFamily: 'NotoSans_100Thin'
     },
     Montserrat_200ExtraLight: {
-        fontFamily: 'Montserrat_200ExtraLight'
+        fontFamily: 'NotoSans_200ExtraLight'
     },
     Montserrat_300Light: {
-        fontFamily: 'Montserrat_300Light'
+        fontFamily: 'NotoSans_300Light'
     },
     Montserrat_400Regular: {
-        fontFamily: 'Montserrat_400Regular'
+        fontFamily: 'NotoSans_400Regular'
     },
     Montserrat_500Medium: {
-        fontFamily: 'Montserrat_500Medium'
+        fontFamily: 'NotoSans_500Medium'
     },
     Montserrat_600SemiBold: {
-        fontFamily: 'Montserrat_600SemiBold'
+        fontFamily: 'NotoSans_600SemiBold'
     },
     Montserrat_700Bold: {
-        fontFamily: 'Montserrat_700Bold'
+        fontFamily: 'NotoSans_700Bold'
     },
     Montserrat_800ExtraBold: {
-        fontFamily: 'Montserrat_800ExtraBold'
+        fontFamily: 'NotoSans_800ExtraBold'
     },
     Montserrat_900Black: {
-        fontFamily: 'Montserrat_900Black'
+        fontFamily: 'NotoSans_900Black'
     },
     Montserrat_100Thin_Italic: {
-        fontFamily: 'Montserrat_100Thin_Italic'
+        fontFamily: 'NotoSans_100Thin_Italic'
     },
     Montserrat_200ExtraLight_Italic: {
-        fontFamily: 'Montserrat_200ExtraLight_Italic'
+        fontFamily: 'NotoSans_200ExtraLight_Italic'
     },
     Montserrat_300Light_Italic: {
-        fontFamily: 'Montserrat_300Light_Italic'
+        fontFamily: 'NotoSans_300Light_Italic'
     },
     Montserrat_400Regular_Italic: {
-        fontFamily: 'Montserrat_400Regular_Italic'
+        fontFamily: 'NotoSans_400Regular_Italic'
     },
     Montserrat_500Medium_Italic: {
-        fontFamily: 'Montserrat_500Medium_Italic'
+        fontFamily: 'NotoSans_500Medium_Italic'
     },
     Montserrat_600SemiBold_Italic: {
-        fontFamily: 'Montserrat_600SemiBold_Italic'
+        fontFamily: 'NotoSans_600SemiBold_Italic'
     },
     Montserrat_700Bold_Italic: {
-        fontFamily: 'Montserrat_700Bold_Italic'
+        fontFamily: 'NotoSans_700Bold_Italic'
     },
     Montserrat_800ExtraBold_Italic: {
-        fontFamily: 'Montserrat_800ExtraBold_Italic'
+        fontFamily: 'NotoSans_800ExtraBold_Italic'
     },
     Montserrat_900Black_Italic: {
-        fontFamily: 'Montserrat_900Black_Italic'
+        fontFamily: 'NotoSans_900Black_Italic'
     },
 
     // text
     Os32Bold: {
-        fontFamily: 'Oswald_700Bold',
+        fontFamily: 'Signika_700Bold',
         fontSize: vw(8),
     },
     Os24Bold: {
-        fontFamily: 'Oswald_700Bold',
+        fontFamily: 'Signika_700Bold',
         fontSize: vw(6),
     },
     Os20Bold: {
-        fontFamily: 'Oswald_700Bold',
+        fontFamily: 'Signika_700Bold',
         fontSize: vw(5),
     },
     Os16Bold: {
-        fontFamily: 'Oswald_700Bold',
+        fontFamily: 'Signika_700Bold',
         fontSize: vw(4),
     },
     Os14Bold: {
-        fontFamily: 'Oswald_700Bold',
+        fontFamily: 'Signika_700Bold',
         fontSize: vw(3.5),
     },
     Os12Bold: {
-        fontFamily: 'Oswald_700Bold',
+        fontFamily: 'Signika_700Bold',
         fontSize: vw(3),
     },
     Mon10Bold: {
-        fontFamily: 'Montserrat_700Bold',
+        fontFamily: 'NotoSans_700Bold',
         fontSize: vw(2.5),
     },
     Mon12Bold: {
-        fontFamily: 'Montserrat_700Bold',
+        fontFamily: 'NotoSans_700Bold',
         fontSize: vw(3),
     },
     Mon14Bold: {
-        fontFamily: 'Montserrat_700Bold',
+        fontFamily: 'NotoSans_700Bold',
         fontSize: vw(3.5),
     },
     Mon16Bold: {
-        fontFamily: 'Montserrat_700Bold',
+        fontFamily: 'NotoSans_700Bold',
         fontSize: vw(4),
     },
     Mon18Bold: {
-        fontFamily: 'Montserrat_700Bold',
+        fontFamily: 'NotoSans_700Bold',
         fontSize: vw(4.5),
     },
     Mon20Bold: {
-        fontFamily: 'Montserrat_700Bold',
+        fontFamily: 'NotoSans_700Bold',
         fontSize: vw(5),
     },
     Mon10Reg: {
-        fontFamily: 'Montserrat_400Regular',
+        fontFamily: 'NotoSans_400Regular',
         fontSize: vw(2.5),
     },
     Mon12Reg: {
-        fontFamily: 'Montserrat_400Regular',
+        fontFamily: 'NotoSans_400Regular',
         fontSize: vw(3),
     },
     Mon14Reg: {
-        fontFamily: 'Montserrat_400Regular',
+        fontFamily: 'NotoSans_400Regular',
         fontSize: vw(3.5),
     },
     Mon16Reg: {
-        fontFamily: 'Montserrat_400Regular',
+        fontFamily: 'NotoSans_400Regular',
         fontSize: vw(4),
     },
 

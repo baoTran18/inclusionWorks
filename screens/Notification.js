@@ -9,7 +9,7 @@ import { gradientRectangle, jobNews1, marginBottomForScrollView, mostCompany, na
 import { editable, heartDouble, shareIcon } from "../assets/svgXml";
 import DATA from "../assets/DATA";
 
-function Notification({ navigation }) {
+function Notification({ }) {
     const { currentUser, notiData, company } = DATA();
     const [allowNoti, setAllowNoti] = React.useState(false);
     let now = new Date();
@@ -34,7 +34,7 @@ function Notification({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.white }]}>
+        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.blue3 }]}>
             <StatusBar backgroundColor={colorStyle.white} barStyle="dark-content" />
             {navTopBar([vw(7.5), vw(7.5)], null,
                 <View style={[styles.flexRow, styles.gap2vw, styles.alignItemsCenter, { alignSelf: 'flex-end' }]}>

@@ -8,23 +8,17 @@ import styles from "../assets/stylesheet";
 import { gradientRectangle, jobNews1, marginBottomForScrollView, mostCompany, searchNav, suitableJob } from "../assets/component";
 import { heartDouble } from "../assets/svgXml";
 import { useNavigatio, NavigationContainer } from '@react-navigation/native';
+import { homeIcon } from "../assets/svgXml";
 
 function Home({ navigation }) {
 
     return (
-        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.white }]}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content"   />
-            <LinearGradient
-                colors={['#E2EAFF', '#FFE7AB']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={{ height: vh(50), position: 'absolute', left: 0, right: 0, top: 0, zIndex: -1 }}
-            >
+        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.blue1 }]}>
+            <StatusBar backgroundColor={colorStyle.blue1} barStyle="dark-content" />
 
-            </LinearGradient>
-            {searchNav("App Name", null, () => { })}
+            {searchNav('Trang chủ', homeIcon(vw(9), vw(9)), colorStyle.blue3, () => { }, colorStyle.blue1)}
 
-            <ScrollView style={[styles.flex1, styles.flexCol, styles.gap5vw, { backgroundColor: colorStyle.white, paddingTop: vw(5) }]}>
+            <ScrollView style={[styles.flex1, styles.flexCol, styles.gap5vw, { backgroundColor: colorStyle.blue3, paddingTop: vw(5) }]}>
                 <View style={{ paddingHorizontal: vw(5) }}>
                     {gradientRectangle()}
                 </View>
@@ -42,21 +36,15 @@ function Home({ navigation }) {
                 </View>
 
                 <View style={[styles.positionRelative, styles.marginVertical6vw, { borderTopWidth: vw(0.5), borderColor: colorStyle.blue1, }]}>
-                    <LinearGradient
-                        colors={['#E2EAFF', '#FFE7AB']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 1 }}
-                    >
-                        <View style={[styles.flexRow, styles.alignItemsCenter, styles.borderRadius16, styles.wfit, styles.positionAbsolute, { zIndex: 1, gap: vw(2.5), paddingVertical: vw(2.5), paddingHorizontal: vw(6.5) }]}>
-                            {heartDouble(vw(6), vw(6))}
-                            <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue1, }]}>TOP công ty hàng đầu</Text>
+                    <View style={[styles.flexRow, styles.alignItemsCenter, styles.borderRadius16, styles.wfit, styles.positionAbsolute, { zIndex: 1, gap: vw(2.5), paddingVertical: vw(2.5), paddingHorizontal: vw(6.5) }]}>
+                        {heartDouble(vw(6), vw(6))}
+                        <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue1, }]}>TOP công ty hàng đầu</Text>
+                    </View>
+                    <View style={[styles.w100, styles.flex1, { paddingVertical: vw(6), paddingHorizontal: vw(6.5), }]}>
+                        <View>
+                            {mostCompany()}
                         </View>
-                        <View style={[styles.w100, styles.flex1, { paddingVertical: vw(6), paddingHorizontal: vw(6.5), }]}>
-                            <View>
-                                {mostCompany()}
-                            </View>
-                        </View>
-                    </LinearGradient>
+                    </View>
                 </View>
 
 

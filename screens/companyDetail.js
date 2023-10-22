@@ -15,19 +15,13 @@ function CompanyDetail({ route, navigation }) {
     const [isBell, setIsBell] = React.useState(false);
     const [isBookmarked, setIsBookmarked] = React.useState(false);
     return (
-        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.white }]}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" />
-            <LinearGradient
-                colors={['#E2EAFF', '#FFE7AB']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={{ height: vh(100), position: 'absolute', left: 0, right: 0, top: 0, zIndex: -1 }}
-            >
-            </LinearGradient>
+        <SafeAreaView style={[styles.flex1, { backgroundColor: colorStyle.blue3 }]}>
+            <StatusBar backgroundColor={colorStyle.blue3} barStyle="dark-content" />
+
 
             {navTopBar([vw(7.5), vw(7.5)], null, shareIcon(vw(7.5), vw(7.5)),)}
             <ScrollView style={[styles.flex1, styles.flexCol, styles.w100, styles.alignSelfCenter, { paddingHorizontal: vw(5) }]}>
-                <View style={[styles.flexRow, styles.flex1, styles.alignItemsCenter, styles.gap2vw, styles.justifyContentSpaceBetween, styles.marginBottom4vw, { backgroundColor: 'rgba(255, 255, 255, 0.30)', borderRadius: vw(5) }]}>
+                <View style={[styles.flexRow, styles.flex1, styles.alignItemsCenter, styles.gap2vw, styles.justifyContentSpaceBetween, styles.marginBottom4vw, { backgroundColor: colorStyle.white, borderRadius: vw(5) }]}>
                     <View style={[styles.flexRow, styles.alignItemsCenter, styles.flex1, { padding: vw(2.5), gap: vw(2.5) }]}>
                         <Image source={item.logoCompany} style={[{ width: vw(25), height: vw(25), borderRadius: vw(4) }]} />
                         <View style={[styles.flexCol, styles.gap1vw, styles.flex1]}>

@@ -1,24 +1,29 @@
 import React, { useState } from "react";
-import { Text, View, TextInput, TouchableOpacity, Image, FlatList } from "react-native";
+import { Text, View, TextInput, TouchableOpacity, Image, FlatList, SafeAreaView, StatusBar, Switch, ScrollView, } from "react-native";
 import styles from "./stylesheet";
 import { vw, vh, vmax, vmin } from "react-native-expo-viewport-units";
 import componentStyle, { colorStyle } from './componentStyleSheet';
 import Svg, { SvgXml } from 'react-native-svg';
-import { searchIcon, infoIcon, leftArrow, shareIcon, heartDouble, bookmark, } from "./svgXml";
+import { searchIcon, infoIcon, leftArrow, shareIcon, heartDouble, bookmark, homeIcon, notiBell } from "./svgXml";
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from "expo-linear-gradient";
 import DATA, { retrieveData } from '../assets/DATA.js';
 import { useNavigatio, NavigationContainer } from '@react-navigation/native';
 
-export const searchNav = (header, environmentColor, toggleModal) => {
+export const searchNav = (header, icon, environmentColor, toggleModal, backgroundColor) => {
     const [search, setSearch] = React.useState("");
     const [searchBar, setSearchBar] = React.useState(false);
     const navigation = useNavigation();
 
     return (
         <View style={[styles.positionRelative, { zIndex: 10 }]}>
-            <View style={[styles.dFlex, styles.flexRow, styles.w100, styles.justifyContentSpaceBetween, styles.gap4vw, styles.alignItemsCenter, { backgroundColor: null, paddingBottom: vw(5), paddingTop: vw(2), paddingHorizontal: vw(6.5), borderBottomRightRadius: vw(5), borderBottomLeftRadius: vw(5) }]}>
-                {header ? <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue1, fontSize: vw(7), }]}>{header}</Text> :
+            <View style={[styles.dFlex, styles.flexRow, styles.w100, styles.justifyContentSpaceBetween, styles.gap4vw, styles.alignItemsCenter, { backgroundColor: backgroundColor ? backgroundColor : null, paddingBottom: vw(5), paddingTop: vw(2), paddingHorizontal: vw(6.5), borderBottomRightRadius: vw(5), borderBottomLeftRadius: vw(5) }]}>
+                {header ?
+                    <View style={[styles.flexRow, styles.alignItemsCenter, styles.gap1vw,]}>
+                        {icon ? icon : null}
+                        <Text style={[componentStyle.Os20Bold, { color: colorStyle.white, fontSize: vw(7), }]}>{header}</Text>
+                    </View>
+                    :
                     <TouchableOpacity
                         style={[{
                             width: vw(10), height: vw(10), borderRadius: vw(1.5), backgroundColor: null,
@@ -28,9 +33,10 @@ export const searchNav = (header, environmentColor, toggleModal) => {
                         onPress={() => { navigation.goBack() }}>
                         {leftArrow()}
                     </TouchableOpacity>}
-                <View style={[styles.dFlex, styles.flexRow, styles.alignItemsCenter, styles.justifyContentSpaceEvenly, styles.border1, styles.flex1, { borderColor: colorStyle.blue2, borderRadius: vw(3.5) }]}>
-                    <View style={{ width: vw(10), height: vw(11), padding: vw(2) }}>{searchIcon()}</View>
-                    <TextInput
+                {toggleModal ?
+                    <View style={[styles.dFlex, styles.flexRow, styles.alignItemsCenter, styles.justifyContentSpaceEvenly, styles.border1, { alignSelf: 'flex-end', borderColor: colorStyle.white, borderRadius: vw(3.5), backgroundColor: colorStyle.white }]}>
+                        <View style={{ width: vw(10), height: vw(11), padding: vw(2) }}>{searchIcon()}</View>
+                        {/* <TextInput
                         style={[styles.flex1]}
                         placeholder="Nhập từ khoá"
                         placeholderTextColor={colorStyle.grey}
@@ -41,8 +47,8 @@ export const searchNav = (header, environmentColor, toggleModal) => {
                         numberOfLines={1}
                         onFocus={() => setSearchBar(true)}
                         onBlur={() => setSearchBar(false)}
-                    />
-                </View>
+                    /> */}
+                    </View> : null}
 
             </View>
             <View style={[styles.w100, styles.h100, styles.positionAbsolute, { zIndex: -1, backgroundColor: environmentColor }]}></View>
@@ -85,22 +91,23 @@ export const gradientRectangle = () => {
     const { currentUser } = DATA();
 
     return (
-        <View style={[componentStyle.shadowW0H1B1S0]}>
-            <LinearGradient
-                colors={['#E2EAFF', '#FFE7AB']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={[styles.flexRow, styles.alignItemsCenter, styles.justifyContentSpaceBetween, styles.gap4vw, { paddingVertical: vw(1.5), paddingHorizontal: vw(2.5), borderRadius: vw(12.5), }]}>
+        <View style={[styles.positionRelative]}>
+            <View style={[styles.flexRow, styles.alignItemsCenter, styles.justifyContentSpaceBetween, styles.gap4vw, { paddingVertical: vw(1.5), paddingHorizontal: vw(2.5), borderRadius: vw(12.5), backgroundColor: colorStyle.white }]}>
 
-                <View style={[styles.flexRow, styles.alignItemsCenter, styles.gap4vw]}>
+                <View style={[styles.flexRow, styles.alignItemsCenter, styles.gap4vw,]}>
                     <Image source={require('../assets/images/placeholder.jpg')} style={[{ width: vw(17.5), height: vw(17.5), borderRadius: vw(100), borderWidth: vw(0.5), borderColor: colorStyle.blue2 }]} />
                     <View>
                         <Text style={[componentStyle.Mon12Bold, { color: colorStyle.darkGray }]}>{date.getHours() < 5 ? 'Chào buổi tối' : date.getHours() < 12 ? 'Chào buổi sáng' : date.getHours() < 18 ? 'Chào buổi chiều' : 'Chào buổi tối'}</Text>
                         <Text style={[componentStyle.Os20Bold, { color: colorStyle.blue4, }]}>{currentUser.name}</Text>
                     </View>
-
                 </View>
-            </LinearGradient>
+                <TouchableOpacity
+                    style={[styles.shadowW0H1Black, { margin: vw(4), borderRadius: vw(100), padding: vw(2.5), backgroundColor: colorStyle.blue3 }]}>
+                    {notiBell(false, vw(7.5), vw(7.5))}
+                </TouchableOpacity>
+
+            </View>
+            <View style={[styles.flex1, styles.w100, styles.h100, styles.positionAbsolute, { borderRadius: vw(12.5), zIndex: -1, backgroundColor: colorStyle.blue1, top: vw(0.5) }]}></View>
         </View>
     )
 }

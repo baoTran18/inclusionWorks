@@ -289,7 +289,7 @@ function LogReg() {
             <StatusBar
                 currentHeight={200}
                 animated={true}
-                backgroundColor="transparent"
+                backgroundColor={colorStyle.white}
                 barStyle="dark-content"
                 showHideTransition="fade"
                 hidden={false}
