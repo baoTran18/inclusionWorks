@@ -7,7 +7,7 @@ import componentStyle from "../assets/componentStyleSheet";
 import styles from "../assets/stylesheet";
 import { gradientRectangle, jobNews1, marginBottomForScrollView, mostCompany, searchNav, suitableJob } from "../assets/component";
 import { editable, heartDouble, userIcon } from "../assets/svgXml";
-import DATA, { retrieveData, fetchUserData } from "../assets/DATA";
+import DATA, { retrieveData, fetchUserData, clearAllData } from "../assets/DATA";
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { doc, getDoc, getFirestore, updateDoc } from "firebase/firestore";

@@ -6,7 +6,7 @@ import componentStyle from "../assets/componentStyleSheet";
 import styles from "../assets/stylesheet";
 import { gradientRectangle, jobNews1, marginBottomForScrollView, mostCompany, searchNav, suitableJob } from "../assets/component";
 import { editable, heartDouble, settingIcon } from "../assets/svgXml";
-import DATA from "../assets/DATA";
+import DATA, { clearAllData } from "../assets/DATA";
 import { SvgXml } from "react-native-svg";
 
 // import sign out firebase
@@ -154,6 +154,7 @@ function Setting({ navigation }) {
                                     <Text style={[componentStyle.Mon14Reg, { color: colorStyle.darkGray, paddingVertical: vw(2.5) }]}>Đăng xuất </Text>
                                 </TouchableOpacity>
                             </View>
+
                             {marginBottomForScrollView()}
                         </View>
                     </View>
