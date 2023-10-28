@@ -89,7 +89,6 @@ export const navTopBar = ([w, h], environmentColor, item, fnc) => {
 export const gradientRectangle = () => {
     const date = new Date();
     const { currentUser } = DATA();
-    console.log(currentUser);
 
     return (
         <View style={[styles.positionRelative]}>

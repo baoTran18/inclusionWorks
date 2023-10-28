@@ -15,7 +15,6 @@ import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 const firebaseConfig = {
   apiKey: "AIzaSyBQJGZ4m1v7lxIMUldZA_IUW1WMLd9ReD8",
   authDomain: "k6app-ducanh.firebaseapp.com",
-  databaseURL: "https://k6app-ducanh-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "k6app-ducanh",
   storageBucket: "k6app-ducanh.appspot.com",
   messagingSenderId: "31607119232",

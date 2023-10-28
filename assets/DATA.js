@@ -15,7 +15,7 @@ export const fetchUserData = async () => {
             if (docSnap.exists()) {
                 // Save data to AsyncStorage
                 try {
-                    await AsyncStorage.setItem('userData', JSON.stringify(docSnap.data()));
+                    await AsyncStorage.setItem('user', JSON.stringify(docSnap.data()));
                     return docSnap.data();
                 } catch (error) {
                     console.error('JSON string is invalid:', error.message);
@@ -29,6 +29,7 @@ export const fetchUserData = async () => {
     }
     return null;
 };
+fetchUserData();
 
 function isValidJson(jsonString) {
     try {
@@ -120,7 +121,7 @@ export default DATA = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await retrieveData('userData');
+                const data = await retrieveData('user');
                 setCurrentUser(data);
             } catch (error) {
                 console.error("Error retriveing data:", error);
@@ -544,10 +545,10 @@ export default DATA = () => {
                 ],
             },
             benefitJob: [
-                "Được tham gia BHXH, BHYT, ....",
-                "Môi trường làm việc sạch sẽ, có điều hòa.",
-                "Những vấn đề khác trao đổi khi phỏng vấn…",
-                "Làm việc trong môi trường sạch sẽ, có máy lạnh.",
+               "Được tham gia BHXH, BHYT, ....",
+               "Môi trường làm việc sạch sẽ, có điều hòa.",
+               "Những vấn đề khác trao đổi khi phỏng vấn…",
+               "Làm việc trong môi trường sạch sẽ, có máy lạnh.",
             ],
         },
     ]
