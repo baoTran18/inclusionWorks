@@ -15,7 +15,7 @@ export const fetchUserData = async () => {
             if (docSnap.exists()) {
                 // Save data to AsyncStorage
                 try {
-                    await AsyncStorage.setItem('user', JSON.stringify(docSnap.data()));
+                    await AsyncStorage.setItem('userData', JSON.stringify(docSnap.data()));
                     return docSnap.data();
                 } catch (error) {
                     console.error('JSON string is invalid:', error.message);
@@ -121,7 +121,7 @@ export default DATA = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await retrieveData('user');
+                const data = await retrieveData('userData');
                 setCurrentUser(data);
             } catch (error) {
                 console.error("Error retriveing data:", error);

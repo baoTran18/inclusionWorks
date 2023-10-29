@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 import { useCustomFonts } from "../assets/componentStyleSheet";
 import { useNavigation } from '@react-navigation/native';
+import { fetchUserData } from "../assets/DATA"; 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 function PreLoad() {
     let [fontsLoaded] = useCustomFonts();
